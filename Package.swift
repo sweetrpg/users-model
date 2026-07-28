@@ -4,12 +4,12 @@ import PackageDescription
 
 
 let package = Package(
-        name: "sweetrpg-profiles-model",
+        name: "sweetrpg-users-model",
         platforms: [
             .macOS(.v10_15),
         ],
         products: [
-            .library(name: "ProfilesModel", targets: [ "ProfilesModel" ])
+            .library(name: "UserModel", targets: [ "UserModel" ])
         ],
         dependencies: [
             // 💧 A server-side Swift web framework.
@@ -18,7 +18,7 @@ let package = Package(
         ],
         targets: [
             .target(
-                    name: "ProfilesModel",
+                    name: "UserModel",
                     dependencies: [
                         .product(name: "Fluent", package: "fluent"),
                         .product(name: "Vapor", package: "vapor"),
@@ -30,8 +30,8 @@ let package = Package(
                         .unsafeFlags([ "-cross-module-optimization" ], .when(configuration: .release)),
                     ]
             ),
-            .testTarget(name: "ProfilesModelTests", dependencies: [
-                .target(name: "ProfilesModel"),
+            .testTarget(name: "UserModelTests", dependencies: [
+                .target(name: "UserModel"),
                 .product(name: "XCTVapor", package: "vapor"),
             ]),
         ]
